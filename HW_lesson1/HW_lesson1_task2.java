@@ -3,6 +3,8 @@
 * Вывести все простые числа от 1 до 1000
 */
 
+package HW_lesson1;
+
 import java.util.ArrayList;
 import java.util.List;
 

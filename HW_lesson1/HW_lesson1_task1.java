@@ -6,6 +6,8 @@
 * 5! = 1*2*3*4*5
 */
 
+package HW_lesson1;
+
 import java.util.Scanner;
 
 public class HW_lesson1_task1 {

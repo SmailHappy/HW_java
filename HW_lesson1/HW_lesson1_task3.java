@@ -7,6 +7,8 @@ Scanner sc = ... int a = sc.nextLine int b = sc.nextLine
 3
 */
 
+package HW_lesson1;
+
 import java.util.Scanner;
 
 public class HW_lesson1_task3 {

@@ -7,6 +7,9 @@
 Предложить хотя бы одно решение или сообщить, что его нет.
 Вывод 24 + 45 = 69
 */
+
+package HW_lesson1;
+
 import java.util.Scanner;
 
 public class HW_lesson1_task4 {
