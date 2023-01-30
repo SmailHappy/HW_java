@@ -1,0 +1,8 @@
+янв. 27, 2023 6:07:58 PM HW_lesson2.HW_lesson2_task4 main
+INFO: Оператор пользователя - +
+янв. 27, 2023 6:07:59 PM HW_lesson2.HW_lesson2_task4 main
+INFO: Первое число пользователя - 94
+янв. 27, 2023 6:08:02 PM HW_lesson2.HW_lesson2_task4 main
+INFO: Второе число пользователя - 384
+янв. 27, 2023 6:08:02 PM HW_lesson2.HW_lesson2_task4 main
+INFO: Результат выполненой операции - 478.0
