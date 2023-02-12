@@ -7,91 +7,40 @@
 
 package HW_lesson5;
 
-import java.util.Random;
-
 public class HW_lesson_5_task_3 {
     public static void main(String[] args) {
-        Board board = new Board(8); 
-        nextTurn(board);
+        String [][] chessfield = new String[8][8];
+
+        chessfield = fill_chessfield_0(chessfield);
+        print_chessfild(chessfield);
     }
 
-    public static class queen {
-        int x, y;
-        static int count = 0;
-
-        public queen(Board board) {
-            while (true) {
-                Random rnd = new Random();
-                int x = rnd.nextInt(8);
-                int y = rnd.nextInt(8);
-                if (board.cell[x][y] == 0) {
-                    this.x = x;
-                    this.y = y;
-                    count++;
-                    break;
-                }
+    public static String [][] fill_chessfield_0(String [][] chessfield) {
+        for (int i = 0; i < chessfield[0].length ; i ++) {
+            for (int j = 0; j < chessfield[1].length; j++) {
+                chessfield[i][j] = "0";
             }
         }
+        return chessfield;
     }
 
-    public static class Board {
-        int size;
-        int[][] cell;
+    public static String [][] fill_chessfield_queen_and_1(String [][] chessfield, Integer index) {
+        for (int i = 0; i < chessfield.length; i++) {
+            for (int j = index; j < chessfield[1].length ; j ++) {
+                if (chessfield[i][j] == "0") {
 
-        public Board(int size) {
-            this.size = size;
-            this.cell = new int[this.size][this.size];
-        }
-
-        public void addQueen(queen queen, int index) {
-            this.cell[queen.x][queen.y] = index + 2;
-            for (int i = 1; i < 8; i++) {
-                int x = queen.x;
-                int y = queen.y;
-
-                if ((x + i) < 8 && (y + i) < 8 && (x + i) >= 0 && (y + i) >= 0 && this.cell[x + i][y + i] == 0) this.cell[x + i][y + i] = 1;
-                if ((x + i) < 8 && (y - i) < 8 && (x + i) >= 0 && (y - i) >= 0 && this.cell[x + i][y - i] == 0) this.cell[x + i][y - i] = 1;
-                if ((y + i) < 8 && (y + i) >= 0 && this.cell[x][y + i] == 0) this.cell[x][y + i] = 1;
-                if ((y - i) < 8 && (y - i) >= 0 && this.cell[x][y - i] == 0) this.cell[x][y - i] = 1;
-                if ((x - i) < 8 && (y + i) < 8 && (x - i) >= 0 && (y + i) >= 0 && this.cell[x - i][y + i] == 0) this.cell[x - i][y + i] = 1;
-                if ((x - i) < 8 && (y - i) < 8 && (x - i) >= 0 && (y - i) >= 0 && this.cell[x - i][y - i] == 0) this.cell[x - i][y - i] = 1;
-                if ((x + i) < 8 && (x + i) >= 0 && this.cell[x + i][y] == 0) this.cell[x + i][y] = 1;
-                if ((x - i) < 8 && (x - i) >= 0 && this.cell[x - i][y] == 0) this.cell[x - i][y] = 1;
-            }
-        }
-
-        public boolean checkBoard() {
-            for (int[] row : this.cell) {
-                for (int elem : row) {
-                    if (elem == 0) return false;
                 }
             }
-            return true;
         }
+        return chessfield;
+    }
 
-        public void print() {
-            for (int i = 0; i < this.size; i++) {
-                for (int j = 0; j < this.size; j++) {
-                    if (this.cell[j][i] == 0 || this.cell[j][i] == 1) System.out.print(" 0 ");
-                    else System.out.print(" X ");
-                }
-                System.out.println();
+    public static void print_chessfild(String [][] chessfield) {
+        for (int i = 0; i < chessfield[0].length ; i ++) {
+            for (int j = 0; j < chessfield[1].length; j++) {
+                System.out.print(chessfield[i][j] + " ");
             }
             System.out.println();
         }
-    }
-
-    public static void nextTurn(Board board) {
-        queen[] queens = new queen[8];
-        for (int i = 0; i < 8; i++) {
-            if (board.checkBoard()) {
-                board = new Board(8);
-                nextTurn(board);
-                return;
-            }
-            queens[i] = new queen(board);
-            board.addQueen(queens[i], i);
-        }
-        board.print();
     }
 }
